@@ -1,0 +1,21 @@
+class Bread:
+    def incream(self,aaname, aacream):
+        self.name = aaname
+        self.cream = aacream
+        print(self.name + " Cream value:", self.cream)
+
+abread = Bread()
+
+# 메서드 호출하기
+abread.incream("my","팥")
+
+
+a=[1,2,3] #list 클래스의 객체 생성
+a.append(4) #list 클래스의 정의된 append 메서드를 a객체에 대해서 호출
+
+#list.append(a.4)
+
+b="hello"  #문자열 객체생성
+b.upper()    #매서드 호출
+
+#str.upper(b)
