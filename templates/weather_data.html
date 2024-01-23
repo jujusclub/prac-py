@@ -1,0 +1,20 @@
+
+<!-- templates/weather_data.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Data</title>
+</head>
+<body>
+    <h1>Weather Data</h1>
+    <table border="1">
+        <tr>
+            <th>Time</th>
+            <th>Average Temperature</th>
+            <th>Min Temperature</th>
+            <th>Max Temperature</th>
+        </tr>
+        {{ table_rows|safe }}
+    </table>
+</body>
+</html>
