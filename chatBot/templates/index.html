@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨 정보</title>
+</head>
+<body>
+    <h1>날씨 정보</h1>
+    
+    <form method="post" action="/">
+        <label for="location">날씨를 확인할 위치:</label>
+        <input type="text" id="location" name="location" required>
+        <button type="submit">검색</button>
+    </form>
+    
+    {% if address %}
+        <h2>{{ address }}</h2>
+        <p>현재 온도: {{ temperature }}</p>
+        <p>날씨 상태: {{ weatherStatus }}</p>
+        
+        <h3>공기 상태</h3>
+        <ul>
+            {% for air_info in air_info_list %}
+                <li>{{ air_info }}</li>
+            {% endfor %}
+        </ul>
+        
+        <h3>시간대별 날씨</h3>
+        <ul>
+            {% for time_weather in time_weather_list %}
+                <li>{{ time_weather }}</li>
+            {% endfor %}
+        </ul>
+        <h3>주간 날씨</h3>
+        <ul>
+            {% for daily_Weather in daily_weather_list %}
+                <li>{{ daily_Weather }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+

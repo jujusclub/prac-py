@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 #텍스트형태의 데이터에서 원하는 html 태그를 추출
 import requests
 
-html = requests.get('https://search.naver.com/search.naver?query=강남+날씨')
+
+html = requests.get('https://search.naver.com/search.naver?query=서현동+날씨')
 # 네이버에 날씨를 검색
 #개발자 모드로 들어가서 div 나 class의 이름을 사용 할 것임
 soup = BeautifulSoup(html.text,'html.parser') # 크롤링 할 수 있도록 준비
@@ -34,4 +35,11 @@ for info in infos:
     
 weatherTime = soup.find_all('li',{'class':'_li'})
 for i in weatherTime:
+    print(i.text.strip())
+    
+weeklyTitle = soup.find('div',{'class':'weekly_forecast_area _toggle_panel'}).find('h3',{'class':'title'}).text
+print(weeklyTitle)
+    
+dailyWeather = soup.find_all('div',{'class':'day_data'})
+for i in dailyWeather:
     print(i.text.strip())
